@@ -1,0 +1,327 @@
+---
+import type { ComponentProps } from 'astro/types';
+import type { Project } from '../types';
+import { Carousel } from 'astro-carousel';
+import { Image } from 'astro:assets';
+
+// DS
+import dsAutocomplete from '../assets/ds/autocomplete.png'; 
+import dsStepsVertical from '../assets/ds/steps-vertical.png'; 
+import dsTabsWithSearch from '../assets/ds/vertical-tabs-with-search.png'; 
+
+// Courier App
+import courierHomePage from '../assets/courier-app/home-page.jpg'; 
+import courierDeliveryDocument from '../assets/courier-app/delivery-document.jpg'; 
+import courierDetailInvoiceInfo from '../assets/courier-app/detail-invoice-info.jpg'; 
+import courierDetailInvoicePayment from '../assets/courier-app/detail-invoice-payment.jpg'; 
+import courierDetailInvoiceProducts from '../assets/courier-app/detail-invoice-products.jpg'; 
+import courierConfirmationPage from '../assets/courier-app/confirmation-page.jpg'; 
+import courierLocationPermission from '../assets/courier-app/location-permission.jpg'; 
+import courierPendingRecapDelivery from '../assets/courier-app/pending-recap-delivery.jpg'; 
+import courierTakePictureWithWatermark from '../assets/courier-app/take-picture-with-watermark.png'; 
+
+// ERP Dashboard
+import erpUserSelectionPipeline from '../assets/erp-dashboard/user selection pipeline.png'; 
+import erpCalendarViewTask from '../assets/erp-dashboard/calendar view task.png'; 
+import erpDataMaster from '../assets/erp-dashboard/data master.png'; 
+import erpGroupTaskList from '../assets/erp-dashboard/group task list.png'; 
+import erpKYC from '../assets/erp-dashboard/KYC.png'; 
+import erpManagerLandingPage from '../assets/erp-dashboard/manager landing page.png'; 
+import erpMarketingTool from '../assets/erp-dashboard/marketing tool.png'; 
+import erpService from '../assets/erp-dashboard/service.png'; 
+import erpTaskList from '../assets/erp-dashboard/task list.png'; 
+import erpTicketingAdd from '../assets/erp-dashboard/ticketing add.png'; 
+import erpTicketingQueue from '../assets/erp-dashboard/ticketing queue.png'; 
+import erpTicketingView from '../assets/erp-dashboard/ticketing view.png'; 
+import erpTransactionTicketingStatistics from '../assets/erp-dashboard/transaction & ticketing statistics.png'; 
+
+// Internal Dashboard
+import internalInventoryExpanded from '../assets/internal-dashboard/inventory-expanded.png'; 
+import internalInventoryFilter from '../assets/internal-dashboard/filter.png'; 
+import internalIncomingGoods from '../assets/internal-dashboard/incoming-goods.png'; 
+import internalInventory from '../assets/internal-dashboard/inventory.png'; 
+import internalPrintedDeliveryDocument from '../assets/internal-dashboard/printed-delivery-document.png'; 
+
+// E-WALLET
+import ewalletHome from '../assets/ewallet/home.png'; 
+import ewalletBilling from '../assets/ewallet/billing.png'; 
+import ewalletFlightsResult from '../assets/ewallet/flights-result.png'; 
+import ewalletFlightsSearch from '../assets/ewallet/flights-search.png'; 
+import ewalletKycImageTake from '../assets/ewallet/kyc-image-take.png'; 
+import ewalletNotification from '../assets/ewallet/notification.png'; 
+import ewalletOtp from '../assets/ewallet/otp.png'; 
+import ewalletProfile from '../assets/ewallet/profile.png'; 
+import ewalletRegister from '../assets/ewallet/register.png'; 
+
+
+const imagesDS: any[] = [
+  {
+    src: dsAutocomplete,
+    alt: "autocomplete",
+  },
+  {
+    src: dsStepsVertical,
+    alt: "steps-vertical",
+  },
+  {
+    src: dsTabsWithSearch,
+    alt: "tabs-with-search",
+  }
+];
+const imagesCourierApp: any[] = [
+  {
+    src: courierHomePage,
+    alt: "courier-home-page",
+  },
+  {
+    src: courierDeliveryDocument,
+    alt: "courier-delivery-document",
+  },
+  {
+    src: courierDetailInvoiceInfo,
+    alt: "courier-detail-invoice-info",
+  },
+  {
+    src: courierDetailInvoicePayment,
+    alt: "courier-detail-invoice-payment",
+  },
+  {
+    src: courierDetailInvoiceProducts,
+    alt: "courier-detail-invoice-products",
+  },
+  {
+    src: courierConfirmationPage,
+    alt: "courier-confirmation-page",
+  },
+  {
+    src: courierLocationPermission,
+    alt: "courier-location-permission",
+  },
+  {
+    src: courierPendingRecapDelivery,
+    alt: "courier-pending-recap-delivery",
+  },
+  {
+    src: courierTakePictureWithWatermark,
+    alt: "courier-take-picture-with-watermark",
+  }
+];
+const imagesEwallet: any[] = [
+  {
+    src: ewalletHome,
+    alt: "ewallet-home",
+  },
+  {
+    src: ewalletBilling,
+    alt: "ewallet-billing",
+  },
+  {
+    src: ewalletFlightsResult,
+    alt: "ewallet-flights-result",
+  },
+  {
+    src: ewalletFlightsSearch,
+    alt: "ewallet-flights-search",
+  },
+  {
+    src: ewalletKycImageTake,
+    alt: "ewallet-kyc-image-take",
+  },
+  {
+    src: ewalletNotification,
+    alt: "ewallet-notification",
+  },
+  {
+    src: ewalletOtp,
+    alt: "ewallet-otp",
+  },
+  {
+    src: ewalletProfile,
+    alt: "ewallet-profile",
+  },
+  {
+    src: ewalletRegister,
+    alt: "ewallet-register",
+  }
+];
+const imagesErp: any[] = [
+  {
+    src: erpUserSelectionPipeline,
+    alt: "erp-user-selection-pipeline",
+  },
+  {
+    src: erpCalendarViewTask,
+    alt: "erp-calendar-view-task",
+  },
+  {
+    src: erpDataMaster,
+    alt: "erp-data-master",
+  },
+  {
+    src: erpGroupTaskList,
+    alt: "erp-group-task-list",
+  },
+  {
+    src: erpKYC,
+    alt: "erp-kyc",
+  },
+  {
+    src: erpManagerLandingPage,
+    alt: "erp-manager-landing-page",
+  },
+  {
+    src: erpMarketingTool,
+    alt: "erp-marketing-tool",
+  },
+  {
+    src: erpService,
+    alt: "erp-service",
+  },
+  {
+    src: erpTaskList,
+    alt: "erp-task-list",
+  },
+  {
+    src: erpTicketingAdd,
+    alt: "erp-ticketing-add",
+  },
+  {
+    src: erpTicketingQueue,
+    alt: "erp-ticketing-queue",
+  },
+  {
+    src: erpTicketingView,
+    alt: "erp-ticketing-view",
+  },
+  {
+    src: erpTransactionTicketingStatistics,
+    alt: "erp-transaction-ticketing-statistics",
+  },
+];
+const imagesInternal: any[] = [
+  {
+    src: internalInventoryExpanded,
+    alt: "internal-inventory-expanded",
+  },
+  {
+    src: internalInventoryFilter,
+    alt: "internal-inventory-filter",
+  },
+  {
+    src: internalIncomingGoods,
+    alt: "internal-incoming-goods",
+  },
+  {
+    src: internalInventory,
+    alt: "internal-inventory",
+  },
+  {
+    src: internalPrintedDeliveryDocument,
+    alt: "internal-printed-delivery-document",
+  },
+];
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Internal Dashboard',
+    description: 'Developed and maintained logistics, stock, and inventory dashboard to assist the logistics team in optimizing product availability and supply chain management. Developed and maintained dashboards for sales by integrating key features such as sales visitation scheduling, routing, attendance tracking, sales daily task management, and sales user roles',
+    technologies: ['React JS', 'SCSS', 'Next JS', 'Vite', 'antd', 'Tailwind CSS', 'Tanstack / React Query', 'Zodios', 'Jotai', 'Axios', 'socket', 'zod'],
+    imagePlaceholder: internalInventory,
+    images: imagesInternal,
+    featured: true
+  },
+  {
+    id: 2,
+    title: 'Design System Dashboard',
+    description: 'Collaborated with the design team to establish and maintain a consistent dashboard design system, using Storybook for UI component documentation and ensuring a seamless user experience across internal applications.',
+    technologies: ['React JS', 'Storybook', 'SASS', 'Ahooks'],
+    imagePlaceholder: dsAutocomplete,
+    images: imagesDS,
+    featured: true
+  },
+  {
+    id: 3,
+    title: 'Courier Apps',
+    description: 'Developed a courier management app to optimize internal and external delivery daily operations, including handling product rejections, payment processing, daily income tracking, and order completion.',
+    technologies: ['Flutter', 'Firebase', 'Dio', 'Flutter BLoC', 'Hive', 'Geolocator'],
+    imagePlaceholder: courierHomePage,
+    images: imagesCourierApp,
+    featured: true
+  },
+  {
+    id: 4,
+    title: 'ERP Dashboard',
+    description: 'Developed and maintained an ERP Dashboard containing various modules, such as Finance, Customer Service, Employee, IT Monitoring, Marketing, and Project Management. Implemented secure encryption methods to ensure the safety and integrity of sensitive data across all modules, following industry best practices for data protection and compliance.',
+    technologies: ['HTML', 'CSS', 'LESS', 'Javascript', 'jQuery', 'Vue JS'],
+    imagePlaceholder: erpMarketingTool,
+    images: imagesErp,
+    featured: true
+  },
+  {
+    id: 5,
+    title: 'E-Wallet Application',
+    description: 'Initiated and developed an e-wallet app, incorporating key features such as Know Your Customer (KYC), QR code scanning, transaction management, OTP verification, and billing services.',
+    technologies: ['Flutter', 'Geolocator'],
+    imagePlaceholder: ewalletHome,
+    images: imagesEwallet,
+    featured: true
+  }
+];
+---
+
+<section id="projects" class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+      Featured Projects
+    </h2>
+    <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+      Here are some of my recent projects. Each one was carefully crafted with attention to detail and best practices.
+    </p>
+
+
+    <!-- <Carousel images={imagesData.find(item => item.index === currentIndex)?.images ?? []} /> -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="carouselTargetList">
+      {projects.map((project) => (
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          {project.imagePlaceholder && (
+            <div class="aspect-video w-full overflow-hidden">
+              <Image src={project.imagePlaceholder} alt={project.title} class="w-full h-full object-cover" />
+            </div>
+          )}
+          
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              {project.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div class="flex gap-4 mb-4 overflow-auto" id="carouselTargetList">
+              {
+                project.images.map((img, index) => {
+                  return (
+                    <a
+                      href={img.src.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={img.src.src} alt={img.alt} class="w-[150px] h-[150px] object-cover" />
+                    </a>
+                  );
+                })
+              }
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

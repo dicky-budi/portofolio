@@ -1,0 +1,126 @@
+---
+import type { Skill } from '../types';
+
+const skills: Skill[] = [
+  {
+    name: 'React JS',
+    level: 'Expert',
+    category: 'Frontend'
+  },
+  {
+    name: 'HTML',
+    level: 'Expert',
+    category: 'Frontend'
+  },
+  {
+    name: 'CSS',
+    level: 'Expert',
+    category: 'Frontend'
+  },
+  {
+    name: 'Javascript',
+    level: 'Expert',
+    category: 'Frontend'
+  },
+  {
+    name: 'Flutter',
+    level: 'Advanced',
+    category: 'Frontend'
+  },
+  {
+    name: 'TypeScript',
+    level: 'Intermediate',
+    category: 'Frontend'
+  },
+  {
+    name: 'jQuery',
+    level: 'Intermediate',
+    category: 'Frontend'
+  },
+  {
+    name: 'Vue JS',
+    level: 'Intermediate',
+    category: 'Frontend'
+  },
+  {
+    name: 'Laravel',
+    level: 'Intermediate',
+    category: 'Frontend'
+  },
+  
+  {
+    name: 'Node.js',
+    level: 'Beginner',
+    category: 'Backend'
+  },
+  {
+    name: 'Express.js',
+    level: 'Beginner',
+    category: 'Backend'
+  },
+  {
+    name: 'PHP',
+    level: 'Beginner',
+    category: 'Backend'
+  },
+  {
+    name: 'Amplitude',
+    level: 'Intermediate',
+    category: 'Tools'
+  },
+  {
+    name: 'Firebase',
+    level: 'Intermediate',
+    category: 'Tools'
+  },
+];
+
+const categories = Array.from(new Set(skills.map(skill => skill.category)));
+---
+
+<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+      Skills & Technologies
+    </h2>
+    <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+      Here are the technologies and tools I work with on a regular basis.
+    </p>
+
+    <div class="space-y-12">
+      {categories.map(category => (
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
+            {category}
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {skills
+              .filter(skill => skill.category === category)
+              .map(skill => (
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                  <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                    {skill.name}
+                  </h4>
+                  <div class="flex items-center">
+                    <div class="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                      <div
+                        class={`h-2 rounded-full bg-blue-600 dark:bg-blue-400 ${
+                          skill.level === 'Beginner' ? 'w-1/4' :
+                          skill.level === 'Intermediate' ? 'w-1/2' :
+                          skill.level === 'Advanced' ? 'w-3/4' :
+                          'w-full'
+                        }`}
+                      />
+                    </div>
+                    <span class="ml-4 text-sm text-gray-600 dark:text-gray-400">
+                      {skill.level}
+                    </span>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
