@@ -48,7 +48,7 @@ import ewalletKycImageTake from '../assets/ewallet/kyc-image-take.png';
 import ewalletNotification from '../assets/ewallet/notification.png'; 
 import ewalletOtp from '../assets/ewallet/otp.png'; 
 import ewalletProfile from '../assets/ewallet/profile.png'; 
-import ewalletRegister from '../assets/ewallet/register.png'; 
+import ewalletRegister from '../assets/ewallet/register.png';
 
 
 const imagesDS: any[] = [
@@ -223,7 +223,7 @@ const projects: Project[] = [
     title: 'Internal Dashboard',
     description: 'Developed and maintained logistics, stock, and inventory dashboard to assist the logistics team in optimizing product availability and supply chain management. Developed and maintained dashboards for sales by integrating key features such as sales visitation scheduling, routing, attendance tracking, sales daily task management, and sales user roles',
     technologies: ['React JS', 'SCSS', 'Next JS', 'Vite', 'antd', 'Tailwind CSS', 'Tanstack / React Query', 'Zodios', 'Jotai', 'Axios', 'socket', 'zod'],
-    imagePlaceholder: "../assets/internal-dashboard/inventory.png",
+    imagePlaceholder: "./src/assets/internal-dashboard/inventory.png",
     images: imagesInternal,
     featured: true
   },
@@ -232,7 +232,7 @@ const projects: Project[] = [
     title: 'Design System Dashboard',
     description: 'Collaborated with the design team to establish and maintain a consistent dashboard design system, using Storybook for UI component documentation and ensuring a seamless user experience across internal applications.',
     technologies: ['React JS', 'Storybook', 'SASS', 'Ahooks'],
-    imagePlaceholder: "../assets/ds/autocomplete.png",
+    imagePlaceholder: "./src/assets/ds/autocomplete.png",
     images: imagesDS,
     featured: true
   },
@@ -241,7 +241,7 @@ const projects: Project[] = [
     title: 'Courier Apps',
     description: 'Developed a courier management app to optimize internal and external delivery daily operations, including handling product rejections, payment processing, daily income tracking, and order completion.',
     technologies: ['Flutter', 'Firebase', 'Dio', 'Flutter BLoC', 'Hive', 'Geolocator'],
-    imagePlaceholder: "../assets/courier-app/home-page.jpg",
+    imagePlaceholder: "./src/assets/courier-app/home-page.jpg",
     images: imagesCourierApp,
     featured: true
   },
@@ -250,7 +250,7 @@ const projects: Project[] = [
     title: 'ERP Dashboard',
     description: 'Developed and maintained an ERP Dashboard containing various modules, such as Finance, Customer Service, Employee, IT Monitoring, Marketing, and Project Management. Implemented secure encryption methods to ensure the safety and integrity of sensitive data across all modules, following industry best practices for data protection and compliance.',
     technologies: ['HTML', 'CSS', 'LESS', 'Javascript', 'jQuery', 'Vue JS'],
-    imagePlaceholder: "../assets/erp-dashboard/marketing-tool.png",
+    imagePlaceholder: "./src/assets/erp-dashboard/marketing-tool.png",
     images: imagesErp,
     featured: true
   },
@@ -259,7 +259,7 @@ const projects: Project[] = [
     title: 'E-Wallet Application',
     description: 'Initiated and developed an e-wallet app, incorporating key features such as Know Your Customer (KYC), QR code scanning, transaction management, OTP verification, and billing services.',
     technologies: ['Flutter', 'Geolocator'],
-    imagePlaceholder: "../assets/ewallet/home.png",
+    imagePlaceholder: "./src/assets/ewallet/home.png",
     images: imagesEwallet,
     featured: true
   }
@@ -278,11 +278,9 @@ const projects: Project[] = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="carouselTargetList">
       {projects.map((project) => (
         <div class="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-          {project.imagePlaceholder && (
-            <div class="aspect-video w-full overflow-hidden">
-              <img src={project.imagePlaceholder} alt={project.title} class="w-full h-full object-cover" />
-            </div>
-          )}
+          <div class="aspect-video w-full overflow-hidden">
+            <img src={project.imagePlaceholder} alt={project.title} class="w-full h-full object-cover" />
+          </div>
           
           <div class="p-6">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
