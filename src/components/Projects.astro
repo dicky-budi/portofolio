@@ -1,5 +1,5 @@
 ---
-import type { Project } from "../types";
+import type { Project, ImageAsset } from "../types";
 
 // DS
 import dsAutocomplete from "../assets/ds/autocomplete.png";
@@ -51,7 +51,7 @@ import ewalletProfile from "../assets/ewallet/profile.png";
 import ewalletRegister from "../assets/ewallet/register.png";
 import { Image } from "astro:assets";
 
-const imagesDS: any[] = [
+const imagesDS: ImageAsset[] = [
   {
     src: dsAutocomplete,
     alt: "autocomplete",
@@ -65,7 +65,7 @@ const imagesDS: any[] = [
     alt: "tabs-with-search",
   },
 ];
-const imagesCourierApp: any[] = [
+const imagesCourierApp: ImageAsset[] = [
   {
     src: courierHomePage,
     alt: "courier-home-page",
@@ -103,7 +103,7 @@ const imagesCourierApp: any[] = [
     alt: "courier-take-picture-with-watermark",
   },
 ];
-const imagesEwallet: any[] = [
+const imagesEwallet: ImageAsset[] = [
   {
     src: ewalletHome,
     alt: "ewallet-home",
@@ -141,7 +141,7 @@ const imagesEwallet: any[] = [
     alt: "ewallet-register",
   },
 ];
-const imagesErp: any[] = [
+const imagesErp: ImageAsset[] = [
   {
     src: erpUserSelectionPipeline,
     alt: "erp-user-selection-pipeline",
@@ -195,7 +195,7 @@ const imagesErp: any[] = [
     alt: "erp-transaction-ticketing-statistics",
   },
 ];
-const imagesInternal: any[] = [
+const imagesInternal: ImageAsset[] = [
   {
     src: internalInventoryExpanded,
     alt: "internal-inventory-expanded",
@@ -335,15 +335,15 @@ const projects: Project[] = [
                 class="flex gap-4 mb-4 overflow-auto"
                 id="carouselTargetList"
               >
-                {project.images.map((img, index) => {
+                {project.images.map((img) => {
                   return (
                     <a
                       href={img.src.src}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
-                        src={img.src.src}
+                      <Image
+                        src={img.src}
                         alt={img.alt}
                         class="w-[150px] h-[150px] object-cover"
                       />

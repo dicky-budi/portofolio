@@ -9,7 +9,12 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;
-  images: any[];
+  images: ImageAsset[];
+}
+
+export interface ImageAsset {
+  src: ImageMetadata;
+  alt: string;
 }
 
 export interface Skill {
