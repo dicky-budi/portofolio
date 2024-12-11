@@ -1,9 +1,11 @@
+import type { ImageMetadata } from "astro";
+
 export interface Project {
   id: number;
   title: string;
   description: string;
   technologies: string[];
-  imagePlaceholder: string;
+  imagePlaceholder: ImageMetadata;
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;

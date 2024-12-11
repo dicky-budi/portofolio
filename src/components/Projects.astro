@@ -49,6 +49,7 @@ import ewalletNotification from "../assets/ewallet/notification.png";
 import ewalletOtp from "../assets/ewallet/otp.png";
 import ewalletProfile from "../assets/ewallet/profile.png";
 import ewalletRegister from "../assets/ewallet/register.png";
+import { Image } from "astro:assets";
 
 const imagesDS: any[] = [
   {
@@ -236,7 +237,7 @@ const projects: Project[] = [
       "socket",
       "zod",
     ],
-    imagePlaceholder: internalInventory.src,
+    imagePlaceholder: internalInventory,
     images: imagesInternal,
     featured: true,
   },
@@ -246,7 +247,7 @@ const projects: Project[] = [
     description:
       "Collaborated with the design team to establish and maintain a consistent dashboard design system, using Storybook for UI component documentation and ensuring a seamless user experience across internal applications.",
     technologies: ["React JS", "Storybook", "SASS", "Ahooks"],
-    imagePlaceholder: dsAutocomplete.src,
+    imagePlaceholder: dsAutocomplete,
     images: imagesDS,
     featured: true,
   },
@@ -263,7 +264,7 @@ const projects: Project[] = [
       "Hive",
       "Geolocator",
     ],
-    imagePlaceholder: courierHomePage.src,
+    imagePlaceholder: courierHomePage,
     images: imagesCourierApp,
     featured: true,
   },
@@ -273,7 +274,7 @@ const projects: Project[] = [
     description:
       "Developed and maintained an ERP Dashboard containing various modules, such as Finance, Customer Service, Employee, IT Monitoring, Marketing, and Project Management. Implemented secure encryption methods to ensure the safety and integrity of sensitive data across all modules, following industry best practices for data protection and compliance.",
     technologies: ["HTML", "CSS", "LESS", "Javascript", "jQuery", "Vue JS"],
-    imagePlaceholder: erpMarketingTool.src,
+    imagePlaceholder: erpMarketingTool,
     images: imagesErp,
     featured: true,
   },
@@ -283,7 +284,7 @@ const projects: Project[] = [
     description:
       "Initiated and developed an e-wallet app, incorporating key features such as Know Your Customer (KYC), QR code scanning, transaction management, OTP verification, and billing services.",
     technologies: ["Flutter", "Geolocator"],
-    imagePlaceholder: ewalletHome.src,
+    imagePlaceholder: ewalletHome,
     images: imagesEwallet,
     featured: true,
   },
@@ -309,7 +310,7 @@ const projects: Project[] = [
         projects.map((project) => (
           <div class="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
             <div class="aspect-video w-full overflow-hidden">
-              <img
+              <Image
                 src={project.imagePlaceholder}
                 alt={project.title}
                 class="w-full h-full object-cover"
