@@ -331,7 +331,7 @@ const projects: Project[] = [
                   </span>
                 ))}
               </div>
-              <div class="flex gap-4 mb-4 overflow-auto">
+              <div class="flex gap-4 mb-4 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {project.images.map((img) => {
                   return (
                     <a
@@ -346,7 +346,7 @@ const projects: Project[] = [
                         width={150}
                         height={150}
                         layout="fixed"
-                        class="object-cover"
+                        class="object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
                       />
                     </a>
                   );
