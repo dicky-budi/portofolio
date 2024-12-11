@@ -1,21 +1,21 @@
 ---
 interface Props {
-  animation?: 'fade-up' | 'fade-down' | 'fade-left' | 'fade-right';
+  animation?: "fade-up" | "fade-down" | "fade-left" | "fade-right";
   duration?: number;
   delay?: number;
   class?: string;
 }
 
 const {
-  animation = 'fade-up',
+  animation = "fade-up",
   duration = 0.5,
   delay = 0,
-  class: className = '',
+  class: className = "",
 } = Astro.props;
 ---
 
 <div
-  class:list={['animate-on-scroll opacity-0', className]}
+  class:list={["animate-on-scroll opacity-0", className]}
   data-animation={animation}
   style={`--animation-duration: ${duration}s; --animation-delay: ${delay}s;`}
 >
@@ -24,8 +24,9 @@ const {
 
 <style>
   .animate-on-scroll {
-    transition: opacity var(--animation-duration) ease-out,
-                transform var(--animation-duration) ease-out;
+    transition:
+      opacity var(--animation-duration) ease-out,
+      transform var(--animation-duration) ease-out;
     transition-delay: var(--animation-delay);
   }
 
@@ -54,22 +55,22 @@ const {
 <script>
   const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: "0px",
+    threshold: 0.1,
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
   // Observe all elements with the animate-on-scroll class
-  document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach(element => observer.observe(element));
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".animate-on-scroll");
+    elements.forEach((element) => observer.observe(element));
   });
 </script>

@@ -12,33 +12,41 @@ const details = {
       position: "Medior Front End Developer",
       company: "PT. Krakatau Karya Abadi",
       period: "Apr 2022 - Present",
-      description: "Maintain, improve, and develop internal dashboard using React JS and mobile application using flutter."
+      description:
+        "Maintain, improve, and develop internal dashboard using React JS and mobile application using flutter.",
     },
     {
       position: "Junior Front End Developer",
       company: "PT. Usaha Kreatif Indonesia",
       period: "Okt 2018 - Mar 2022",
-      description: "Developed and maintained multiple dashboard and mobile application using flutter."
-    }
-  ]
+      description:
+        "Developed and maintained multiple dashboard and mobile application using flutter.",
+    },
+  ],
 };
 ---
 
 <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+    <h2
+      class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+    >
       About Me
     </h2>
 
     <div class="max-w-4xl mx-auto">
       <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8 mb-8">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start gap-8"
+        >
           <div class="w-32 h-32 md:w-48 md:h-48 relative">
-            <div class="w-full h-full rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-4xl font-bold text-gray-400 dark:text-gray-500">
+            <div
+              class="w-full h-full rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-4xl font-bold text-gray-400 dark:text-gray-500"
+            >
               {details.name.charAt(0)}
             </div>
           </div>
-          
+
           <div class="flex-1">
             <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               {details.name}
@@ -60,27 +68,25 @@ const details = {
         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           Experience
         </h3>
-        
-        {details.experience.map((exp) => (
-          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-              <div>
-                <h4 class="text-xl font-semibold text-gray-900 dark:text-white">
-                  {exp.position}
-                </h4>
-                <p class="text-blue-600 dark:text-blue-400">
-                  {exp.company}
+
+        {
+          details.experience.map((exp) => (
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6">
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    {exp.position}
+                  </h4>
+                  <p class="text-blue-600 dark:text-blue-400">{exp.company}</p>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">
+                  {exp.period}
                 </p>
               </div>
-              <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">
-                {exp.period}
-              </p>
+              <p class="text-gray-600 dark:text-gray-300">{exp.description}</p>
             </div>
-            <p class="text-gray-600 dark:text-gray-300">
-              {exp.description}
-            </p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </div>
