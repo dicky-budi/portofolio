@@ -31,6 +31,6 @@ export interface SocialLink {
 }
 
 export interface NavItem {
-  label: string;
+  label: "Home" | "About" | "Projects" | "Skills";
   href: string;
 }
