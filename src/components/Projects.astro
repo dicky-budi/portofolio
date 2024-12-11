@@ -331,21 +331,22 @@ const projects: Project[] = [
                   </span>
                 ))}
               </div>
-              <div
-                class="flex gap-4 mb-4 overflow-auto"
-                id="carouselTargetList"
-              >
+              <div class="flex gap-4 mb-4 overflow-auto">
                 {project.images.map((img) => {
                   return (
                     <a
                       href={img.src.src}
                       target="_blank"
+                      class="contents"
                       rel="noopener noreferrer"
                     >
                       <Image
                         src={img.src}
                         alt={img.alt}
-                        class="w-[150px] h-[150px] object-cover"
+                        width={150}
+                        height={150}
+                        layout="fixed"
+                        class="object-cover"
                       />
                     </a>
                   );

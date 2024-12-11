@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+
+import profile from "../assets/profile.png";
+
 // You can customize these details
 const details = {
   name: "Dicky Budianto Sugiono",
@@ -40,11 +44,11 @@ const details = {
           class="flex flex-col md:flex-row items-center md:items-start gap-8"
         >
           <div class="w-32 h-32 md:w-48 md:h-48 relative">
-            <div
-              class="w-full h-full rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-4xl font-bold text-gray-400 dark:text-gray-500"
-            >
-              {details.name.charAt(0)}
-            </div>
+            <Image
+              class="rounded-full w-full h-full object-cover"
+              src={profile}
+              alt="profile"
+            />
           </div>
 
           <div class="flex-1">
