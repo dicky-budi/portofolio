@@ -49,6 +49,19 @@ import ewalletNotification from "../assets/ewallet/notification.png";
 import ewalletOtp from "../assets/ewallet/otp.png";
 import ewalletProfile from "../assets/ewallet/profile.png";
 import ewalletRegister from "../assets/ewallet/register.png";
+
+// BASKIT
+import baskitAddInventory from "../assets/baskit/add-inventory.png";
+import baskitAddInventory2 from "../assets/baskit/add-inventory-2.png";
+import baskitAddInventoryModal from "../assets/baskit/add-inventory-modal.png";
+import baskitCreatePO from "../assets/baskit/create-PO.png";
+import baskitCreateSO from "../assets/baskit/create-SO.png";
+import baskitInventoryList from "../assets/baskit/inventory-list.png";
+import baskitInventoryProductCutout from "../assets/baskit/inventory-product-cutout.png";
+import baskitLandingPage from "../assets/baskit/landing-page.png";
+import baskitListPO from "../assets/baskit/list-PO.png";
+import baskitListSO from "../assets/baskit/list-SO.png";
+
 import { Image } from "astro:assets";
 
 const imagesDS: ImageAsset[] = [
@@ -141,6 +154,48 @@ const imagesEwallet: ImageAsset[] = [
     alt: "ewallet-register",
   },
 ];
+const imagesBaskit: ImageAsset[] = [
+  {
+    src: baskitLandingPage,
+    alt: "landing-page",
+  },
+  {
+    src: baskitInventoryList,
+    alt: 'inventory-list'
+  },
+  {
+    src: baskitAddInventory,
+    alt: 'add-inventory'
+  },
+  {
+    src: baskitAddInventory2,
+    alt: 'add-inventory-2'
+  },
+  {
+    src: baskitAddInventoryModal,
+    alt: 'add-inventory-modal'
+  },
+  {
+    src: baskitCreateSO,
+    alt: 'create-SO'
+  },
+  {
+    src: baskitCreatePO,
+    alt: 'create-PO'
+  },
+  {
+    src: baskitInventoryProductCutout,
+    alt: 'inventory-product-cutout'
+  }, 
+  {
+    src: baskitListPO,
+    alt: 'list-PO'
+  },
+  {
+    src: baskitListSO,
+    alt: 'list-SO'
+  }
+];
 const imagesErp: ImageAsset[] = [
   {
     src: erpUserSelectionPipeline,
@@ -220,6 +275,26 @@ const imagesInternal: ImageAsset[] = [
 const projects: Project[] = [
   {
     id: 1,
+    title: "ERP Dashboard",
+    description:
+      "Developed and maintained ERP Dashboard, create Purchase Order Module, Customer Relationship Management Module, and revamping landing page, inventory management, and settings page.",
+    technologies: [
+      "React JS",
+      "Next JS",
+      "Daisy UI",
+      "Tailwind CSS",
+      "Tanstack / React Query",
+      "Zustand",
+      "Axios",
+      "zod",
+      "swr"
+    ],
+    imagePlaceholder: baskitLandingPage,
+    images: imagesBaskit,
+    featured: true,
+  },
+  {
+    id: 2,
     title: "Internal Dashboard",
     description:
       "Developed and maintained logistics, stock, and inventory dashboard to assist the logistics team in optimizing product availability and supply chain management. Developed and maintained dashboards for sales by integrating key features such as sales visitation scheduling, routing, attendance tracking, sales daily task management, and sales user roles",
@@ -242,7 +317,7 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "Design System Dashboard",
     description:
       "Collaborated with the design team to establish and maintain a consistent dashboard design system, using Storybook for UI component documentation and ensuring a seamless user experience across internal applications.",
@@ -252,7 +327,7 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Courier Apps",
     description:
       "Developed a courier management app to optimize internal and external delivery daily operations, including handling product rejections, payment processing, daily income tracking, and order completion.",
@@ -269,7 +344,7 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "ERP Dashboard",
     description:
       "Developed and maintained an ERP Dashboard containing various modules, such as Finance, Customer Service, Employee, IT Monitoring, Marketing, and Project Management. Implemented secure encryption methods to ensure the safety and integrity of sensitive data across all modules, following industry best practices for data protection and compliance.",
@@ -287,7 +362,7 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    id: 5,
+    id: 6,
     title: "E-Wallet Application",
     description:
       "Initiated and developed an e-wallet app, incorporating key features such as Know Your Customer (KYC), QR code scanning, transaction management, OTP verification, and billing services.",
