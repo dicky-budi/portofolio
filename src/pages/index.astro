@@ -3,18 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-import Projects from "../components/Projects.astro";
+import ProjectCarousel from "../components/ProjectCarousel.astro";
 import Skills from "../components/Skills.astro";
+import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="My Portfolio">
+<Layout
+  title="Dicky Budianto — Frontend Developer"
+  description="Frontend developer crafting web and mobile experiences that bridge design precision with engineering quality. Based in Surabaya, Indonesia."
+>
   <Header />
   <main>
     <Hero />
     <About />
-    <Projects />
+    <ProjectCarousel />
     <Skills />
+    <Contact />
   </main>
   <Footer />
 </Layout>

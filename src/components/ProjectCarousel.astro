@@ -1,0 +1,638 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// ── DS ─────────────────────────────────────────────
+import dsAutocomplete from "../assets/ds/autocomplete.png";
+import dsStepsVertical from "../assets/ds/steps-vertical.png";
+import dsTabsWithSearch from "../assets/ds/vertical-tabs-with-search.png";
+
+// ── Courier App ────────────────────────────────────
+import courierHomePage from "../assets/courier-app/home-page.jpg";
+import courierDeliveryDocument from "../assets/courier-app/delivery-document.jpg";
+import courierDetailInvoiceInfo from "../assets/courier-app/detail-invoice-info.jpg";
+import courierDetailInvoicePayment from "../assets/courier-app/detail-invoice-payment.jpg";
+import courierDetailInvoiceProducts from "../assets/courier-app/detail-invoice-products.jpg";
+import courierConfirmationPage from "../assets/courier-app/confirmation-page.jpg";
+import courierLocationPermission from "../assets/courier-app/location-permission.jpg";
+import courierPendingRecapDelivery from "../assets/courier-app/pending-recap-delivery.jpg";
+import courierTakePictureWithWatermark from "../assets/courier-app/take-picture-with-watermark.png";
+
+// ── ERP Dashboard ──────────────────────────────────
+import erpUserSelectionPipeline from "../assets/erp-dashboard/user-selection-pipeline.png";
+import erpCalendarViewTask from "../assets/erp-dashboard/calendar-view-task.png";
+import erpDataMaster from "../assets/erp-dashboard/data-master.png";
+import erpGroupTaskList from "../assets/erp-dashboard/group-task-lists.png";
+import erpKYC from "../assets/erp-dashboard/kyc-image.png";
+import erpManagerLandingPage from "../assets/erp-dashboard/manager-landing-page.png";
+import erpMarketingTool from "../assets/erp-dashboard/marketing-tool.png";
+import erpService from "../assets/erp-dashboard/services.png";
+import erpTaskList from "../assets/erp-dashboard/task-list.png";
+import erpTicketingAdd from "../assets/erp-dashboard/ticketing-add.png";
+import erpTicketingQueue from "../assets/erp-dashboard/ticketing-queue.png";
+import erpTicketingView from "../assets/erp-dashboard/ticketing-view.png";
+import erpTransactionTicketingStatistics from "../assets/erp-dashboard/transaction-ticketing-statistics.png";
+
+// ── Internal Dashboard ─────────────────────────────
+import internalInventoryExpanded from "../assets/internal-dashboard/inventory-expanded.png";
+import internalInventoryFilter from "../assets/internal-dashboard/filter.png";
+import internalIncomingGoods from "../assets/internal-dashboard/incoming-goods.png";
+import internalInventory from "../assets/internal-dashboard/inventory.png";
+import internalPrintedDeliveryDocument from "../assets/internal-dashboard/printed-delivery-document.png";
+
+// ── E-Wallet ───────────────────────────────────────
+import ewalletHome from "../assets/ewallet/home.png";
+import ewalletBilling from "../assets/ewallet/billing.png";
+import ewalletFlightsResult from "../assets/ewallet/flights-result.png";
+import ewalletFlightsSearch from "../assets/ewallet/flights-search.png";
+import ewalletKycImageTake from "../assets/ewallet/kyc-image-take.png";
+import ewalletNotification from "../assets/ewallet/notification.png";
+import ewalletOtp from "../assets/ewallet/otp.png";
+import ewalletProfile from "../assets/ewallet/profile.png";
+import ewalletRegister from "../assets/ewallet/register.png";
+
+// ── Baskit ─────────────────────────────────────────
+import baskitAddInventory from "../assets/baskit/add-inventory.png";
+import baskitAddInventory2 from "../assets/baskit/add-inventory-2.png";
+import baskitAddInventoryModal from "../assets/baskit/add-inventory-modal.png";
+import baskitCreatePO from "../assets/baskit/create-PO.png";
+import baskitCreateSO from "../assets/baskit/create-SO.png";
+import baskitInventoryList from "../assets/baskit/inventory-list.png";
+import baskitInventoryProductCutout from "../assets/baskit/inventory-product-cutout.png";
+import baskitLandingPage from "../assets/baskit/landing-page.png";
+import baskitListPO from "../assets/baskit/list-PO.png";
+import baskitListSO from "../assets/baskit/list-SO.png";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  images: ImageMetadata[];
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "Baskit ERP",
+    description:
+      "Enterprise resource planning system for SME supply chain management. Handles inventory, purchase orders, sales orders, and supplier relationships across multiple warehouse locations.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand", "React Query", "Zod"],
+    images: [
+      baskitLandingPage, baskitInventoryList, baskitAddInventory,
+      baskitAddInventory2, baskitAddInventoryModal, baskitCreatePO,
+      baskitCreateSO, baskitInventoryProductCutout, baskitListPO, baskitListSO,
+    ],
+  },
+  {
+    id: 2,
+    title: "Internal Dashboard",
+    description:
+      "Logistics, stock, and inventory dashboard for supply chain operations. Also covers sales: visitation scheduling, routing, attendance, and daily task management.",
+    technologies: ["React", "Next.js", "Ant Design", "Tailwind CSS", "Jotai", "React Query", "Socket.io"],
+    images: [
+      internalInventory, internalInventoryExpanded, internalInventoryFilter,
+      internalIncomingGoods, internalPrintedDeliveryDocument,
+    ],
+  },
+  {
+    id: 3,
+    title: "Design System",
+    description:
+      "Collaborated with the design team to build and maintain a consistent component library. Documented with Storybook, ensuring seamless UX across internal applications.",
+    technologies: ["React", "Storybook", "SASS", "Ahooks"],
+    images: [dsAutocomplete, dsStepsVertical, dsTabsWithSearch],
+  },
+  {
+    id: 4,
+    title: "Courier App",
+    description:
+      "Flutter courier management app for daily delivery operations — product rejections, payment processing, daily income tracking, geo-stamped picture confirmation.",
+    technologies: ["Flutter", "Firebase", "Flutter BLoC", "Dio", "Hive", "Geolocator"],
+    images: [
+      courierHomePage, courierDeliveryDocument, courierDetailInvoiceInfo,
+      courierDetailInvoicePayment, courierDetailInvoiceProducts,
+      courierConfirmationPage, courierLocationPermission,
+      courierPendingRecapDelivery, courierTakePictureWithWatermark,
+    ],
+  },
+  {
+    id: 5,
+    title: "ERP Dashboard",
+    description:
+      "Multi-module ERP with Finance, CRM, HR, IT Monitoring, Marketing, and Project Management. Implements secure encryption across all data flows.",
+    technologies: ["Vue.js", "Vuex", "jQuery", "LESS", "HTML", "CSS"],
+    images: [
+      erpManagerLandingPage, erpMarketingTool, erpCalendarViewTask,
+      erpUserSelectionPipeline, erpDataMaster, erpGroupTaskList,
+      erpKYC, erpService, erpTaskList,
+      erpTicketingAdd, erpTicketingQueue, erpTicketingView,
+      erpTransactionTicketingStatistics,
+    ],
+  },
+  {
+    id: 6,
+    title: "E-Wallet App",
+    description:
+      "Flutter e-wallet app with KYC flow, QR code scanning, OTP verification, flight search/booking, billing services, and transaction history.",
+    technologies: ["Flutter", "Dart", "Geolocator", "Firebase"],
+    images: [
+      ewalletHome, ewalletBilling, ewalletFlightsSearch,
+      ewalletFlightsResult, ewalletKycImageTake, ewalletNotification,
+      ewalletOtp, ewalletProfile, ewalletRegister,
+    ],
+  },
+];
+---
+
+<section id="projects" class="projects-section">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="proj-counter">
+      <span id="proj-counter-current">01</span> / {String(projects.length).padStart(2, "0")}
+    </div>
+  </div>
+
+  <!-- Tab navigation -->
+  <div class="proj-tabs" role="tablist" aria-label="Project tabs">
+    {projects.map((p, i) => (
+      <button
+        class={`proj-tab${i === 0 ? " active" : ""}`}
+        role="tab"
+        data-index={i}
+        aria-selected={i === 0 ? "true" : "false"}
+        aria-controls={`proj-panel-${i}`}
+        id={`proj-tab-${i}`}
+      >
+        {p.title}
+      </button>
+    ))}
+  </div>
+
+  <!-- Carousel panels -->
+  <div class="panels">
+    {projects.map((p, i) => (
+      <div
+        class={`carousel-card${i === 0 ? " active" : ""}`}
+        id={`proj-panel-${i}`}
+        role="tabpanel"
+        aria-labelledby={`proj-tab-${i}`}
+        hidden={i !== 0}
+      >
+        <!-- Image panel -->
+        <div class="img-panel">
+          <div class="drag-hint" aria-hidden="true">⟺ Drag to explore</div>
+          <div class="img-strip" data-strip>
+            {p.images.map((img, j) => (
+              <div class="img-frame">
+                <Image
+                  src={img}
+                  alt={`${p.title} screenshot ${j + 1}`}
+                  class="img-fill"
+                  loading={i === 0 && j === 0 ? "eager" : "lazy"}
+                  widths={[400, 800, 1200]}
+                  sizes="(max-width: 768px) 100vw, 65vw"
+                />
+              </div>
+            ))}
+          </div>
+
+          <!-- Thumbnail strip -->
+          {p.images.length > 1 && (
+            <div class="thumb-strip" data-thumbs>
+              {p.images.map((img, j) => (
+                <button
+                  class={`thumb${j === 0 ? " active" : ""}`}
+                  data-thumb-idx={j}
+                  aria-label={`View screenshot ${j + 1}`}
+                >
+                  <Image
+                    src={img}
+                    alt=""
+                    class="thumb-img"
+                    width={56}
+                    height={36}
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <!-- Info panel -->
+        <div class="info-panel">
+          <div class="proj-num" aria-hidden="true">{String(p.id).padStart(2, "0")}</div>
+          <h3 class="proj-name">{p.title}</h3>
+          <p class="proj-desc">{p.description}</p>
+          <div class="proj-divider" aria-hidden="true"></div>
+          <div class="tech-label">Tech Stack</div>
+          <div class="tech-pills">
+            {p.technologies.map((t, ti) => (
+              <span class={`pill${ti < 2 ? " accent" : ""}`}>{t}</span>
+            ))}
+          </div>
+          <div class="carousel-nav">
+            <div class="dots" aria-hidden="true">
+              {projects.map((_, di) => (
+                <button
+                  class={`dot${di === i ? " active" : ""}`}
+                  data-goto={di}
+                  aria-label={`Go to project ${di + 1}`}
+                ></button>
+              ))}
+            </div>
+            <div class="nav-btns">
+              <button class="nav-btn prev-btn" aria-label="Previous project">←</button>
+              <button class="nav-btn next-btn" aria-label="Next project">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    position: relative;
+    z-index: 10;
+    padding: var(--section-py) var(--section-px);
+  }
+
+  /* ── Header ─── */
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text);
+    margin-top: 8px;
+  }
+  .proj-counter {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .proj-counter span { color: var(--accent); }
+
+  /* ── Tabs ─── */
+  .proj-tabs {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .proj-tabs::-webkit-scrollbar { display: none; }
+  .proj-tab {
+    flex-shrink: 0;
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .proj-tab:hover { color: var(--text); }
+  .proj-tab.active { color: var(--text); border-color: var(--accent); }
+
+  /* ── Carousel card ─── */
+  .carousel-card {
+    display: none;
+    grid-template-columns: 1fr 360px;
+    min-height: 500px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s;
+    animation: fade-in 0.35s ease both;
+  }
+  .carousel-card.active { display: grid; }
+  .carousel-card:hover { border-color: rgba(0, 229, 204, 0.15); }
+
+  @media (max-width: 900px) {
+    .carousel-card { grid-template-columns: 1fr; }
+  }
+
+  /* ── Image panel ─── */
+  .img-panel {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-2);
+    cursor: grab;
+    min-height: 360px;
+  }
+  .img-panel:active { cursor: grabbing; }
+
+  .drag-hint {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 20;
+    background: rgba(7, 10, 16, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .img-panel:hover .drag-hint { opacity: 0; }
+
+  .img-strip {
+    display: flex;
+    height: 100%;
+    min-height: 360px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+  .img-strip::-webkit-scrollbar { display: none; }
+  .img-strip:active { cursor: grabbing; }
+
+  .img-frame {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-fill {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Thumbnail strip */
+  .thumb-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 16px;
+    background: linear-gradient(transparent, rgba(7, 10, 16, 0.92));
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    z-index: 10;
+  }
+  .thumb-strip::-webkit-scrollbar { display: none; }
+  .thumb {
+    width: 52px;
+    height: 34px;
+    border-radius: 2px;
+    border: 1px solid rgba(26, 34, 54, 0.8);
+    cursor: pointer;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: border-color 0.2s;
+    background: none;
+    padding: 0;
+  }
+  .thumb:hover,
+  .thumb.active { border-color: var(--accent); }
+  .thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── Info panel ─── */
+  .info-panel {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border);
+    position: relative;
+  }
+  .info-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 204, 0.15), transparent);
+  }
+
+  @media (max-width: 900px) {
+    .info-panel { border-left: none; border-top: 1px solid var(--border); }
+  }
+
+  .proj-num {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 16px;
+    user-select: none;
+  }
+  .proj-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .proj-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--muted);
+    flex: 1;
+    margin-bottom: 24px;
+  }
+  .proj-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+
+  .tech-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 28px;
+  }
+  .pill {
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.accent { border-color: rgba(0, 229, 204, 0.3); color: var(--accent); }
+
+  /* Nav controls */
+  .carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dots { display: flex; gap: 8px; align-items: center; }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+  }
+  .dot.active { background: var(--accent); transform: scale(1.5); }
+  .dot:hover { background: var(--muted); }
+
+  .nav-btns { display: flex; gap: 8px; }
+  .nav-btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    border-radius: 2px;
+  }
+  .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+<script>
+  const TOTAL = document.querySelectorAll(".carousel-card").length;
+  let currentIdx = 0;
+
+  function goTo(idx: number) {
+    const prev = currentIdx;
+    currentIdx = ((idx % TOTAL) + TOTAL) % TOTAL;
+
+    // Panels
+    document.querySelectorAll<HTMLElement>(".carousel-card").forEach((panel, i) => {
+      const isActive = i === currentIdx;
+      panel.classList.toggle("active", isActive);
+      panel.hidden = !isActive;
+    });
+
+    // Tabs
+    document.querySelectorAll<HTMLElement>(".proj-tab").forEach((tab, i) => {
+      tab.classList.toggle("active", i === currentIdx);
+      tab.setAttribute("aria-selected", String(i === currentIdx));
+    });
+
+    // Dots (all dot groups)
+    document.querySelectorAll<HTMLElement>(".dot").forEach((dot) => {
+      dot.classList.toggle("active", Number(dot.dataset.goto) === currentIdx);
+    });
+
+    // Counter
+    const counter = document.getElementById("proj-counter-current");
+    if (counter) counter.textContent = String(currentIdx + 1).padStart(2, "0");
+  }
+
+  // Tab clicks
+  document.querySelectorAll<HTMLElement>(".proj-tab").forEach((tab) => {
+    tab.addEventListener("click", () => goTo(Number(tab.dataset.index)));
+  });
+
+  // Dot clicks
+  document.querySelectorAll<HTMLElement>(".dot").forEach((dot) => {
+    dot.addEventListener("click", () => goTo(Number(dot.dataset.goto)));
+  });
+
+  // Prev / Next
+  document.querySelectorAll<HTMLElement>(".prev-btn").forEach((btn) => {
+    btn.addEventListener("click", () => goTo(currentIdx - 1));
+  });
+  document.querySelectorAll<HTMLElement>(".next-btn").forEach((btn) => {
+    btn.addEventListener("click", () => goTo(currentIdx + 1));
+  });
+
+  // Keyboard
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") goTo(currentIdx + 1);
+    if (e.key === "ArrowLeft")  goTo(currentIdx - 1);
+  });
+
+  // ── Drag-to-scroll on active image strip ────────────────────────
+  function setupStrip(strip: HTMLElement) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    strip.addEventListener("mousedown", (e) => {
+      isDown = true;
+      strip.style.cursor = "grabbing";
+      startX = e.pageX - strip.offsetLeft;
+      scrollLeft = strip.scrollLeft;
+    });
+    strip.addEventListener("mouseleave", () => { isDown = false; strip.style.cursor = "grab"; });
+    strip.addEventListener("mouseup", () => { isDown = false; strip.style.cursor = "grab"; });
+    strip.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - strip.offsetLeft;
+      strip.scrollLeft = scrollLeft - (x - startX) * 1.4;
+    });
+  }
+
+  function setupThumbs(thumbsContainer: HTMLElement, strip: HTMLElement) {
+    const thumbs = thumbsContainer.querySelectorAll<HTMLElement>(".thumb");
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener("click", () => {
+        thumbs.forEach((t) => t.classList.remove("active"));
+        thumb.classList.add("active");
+        strip.scrollTo({ left: i * strip.offsetWidth, behavior: "smooth" });
+      });
+    });
+
+    // Sync thumb on scroll
+    strip.addEventListener("scroll", () => {
+      const idx = Math.round(strip.scrollLeft / strip.offsetWidth);
+      thumbs.forEach((t, ti) => t.classList.toggle("active", ti === idx));
+    }, { passive: true });
+  }
+
+  // Init all strips
+  document.querySelectorAll<HTMLElement>("[data-strip]").forEach((strip) => {
+    setupStrip(strip);
+    const thumbsEl = strip.closest(".img-panel")?.querySelector<HTMLElement>("[data-thumbs]");
+    if (thumbsEl) setupThumbs(thumbsEl, strip);
+  });
+</script>
