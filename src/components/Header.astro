@@ -1,85 +1,249 @@
 ---
-import type { NavItem } from "../types";
-import ThemeToggle from "./ThemeToggle.astro";
-
-const navItems: NavItem[] = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
+const navItems = [
+  { label: "About",   href: "#about" },
+  { label: "Work",    href: "#projects" },
+  { label: "Skills",  href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ];
 ---
 
-<header
-  class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 transition-colors duration-300"
->
-  <div class="container mx-auto px-4">
-    <nav class="flex items-center h-16">
-      <a href="#" class="text-xl font-bold text-gray-800 dark:text-white">
-        Portfolio
-      </a>
+<header id="site-header">
+  <div class="header-inner">
+    <!-- Logo -->
+    <a href="#" class="logo" aria-label="Dicky Budianto — home">
+      D<span>.</span>B
+    </a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-8 md:w-full justify-end">
-        {
-          navItems.map(({ label, href }) => (
-            <a
-              href={href}
-              class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-            >
-              {label}
-            </a>
-          ))
-        }
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <div class="flex items-center space-x-4 justify-end p-2 max-md:w-full">
-        <button
-          id="mobile-menu-button"
-          class="md:hidden text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-        <ThemeToggle />
-      </div>
+    <!-- Desktop nav -->
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <ul>
+        {navItems.map(({ label, href }) => (
+          <li><a href={href}>{label}</a></li>
+        ))}
+      </ul>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
-      {
-        navItems.map(({ label, href }) => (
-          <a
-            href={href}
-            class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-          >
-            {label}
-          </a>
-        ))
-      }
+    <!-- Right side -->
+    <div class="header-right">
+      <span class="avail-badge">
+        <span class="avail-dot" aria-hidden="true"></span>
+        Available
+      </span>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        class="hamburger"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile drawer -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <ul>
+      {navItems.map(({ label, href }) => (
+        <li><a href={href} class="mobile-link">{label}</a></li>
+      ))}
+    </ul>
+  </nav>
 </header>
 
-<script>
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
+<style>
+  #site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    background: rgba(7, 10, 16, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(26, 34, 54, 0.6);
+    animation: fade-up 0.6s ease both;
+  }
 
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--section-px);
+    height: 64px;
+  }
+
+  /* ── Logo ─── */
+  .logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo span { color: var(--accent); }
+
+  /* ── Desktop nav ─── */
+  .desktop-nav ul {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .desktop-nav a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .desktop-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.25s;
+  }
+  .desktop-nav a:hover { color: var(--text); }
+  .desktop-nav a:hover::after { width: 100%; }
+
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+  }
+
+  /* ── Available badge ─── */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .avail-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .avail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(0, 229, 204, 0.5);
+  }
+
+  @media (max-width: 480px) {
+    .avail-badge { display: none; }
+  }
+
+  /* ── Hamburger ─── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--muted);
+    transition: transform 0.3s, opacity 0.3s, background 0.2s;
+  }
+  .hamburger:hover span { background: var(--text); }
+  .hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+  }
+
+  /* ── Mobile nav drawer ─── */
+  .mobile-nav {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid transparent;
+  }
+  .mobile-nav.open {
+    max-height: 300px;
+    border-top-color: var(--border);
+  }
+  .mobile-nav ul {
+    list-style: none;
+    padding: 12px var(--section-px) 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-link {
+    display: block;
+    padding: 10px 0;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-link:hover { color: var(--accent); }
+</style>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn") as HTMLButtonElement | null;
+  const nav = document.getElementById("mobile-nav");
+
+  if (btn && nav) {
+    btn.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(isOpen));
+      nav.setAttribute("aria-hidden", String(!isOpen));
     });
+
+    // Close on link click
+    nav.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        nav.setAttribute("aria-hidden", "true");
+      });
+    });
+  }
+
+  // Scroll-based header shrink
+  const header = document.getElementById("site-header");
+  if (header) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        header.style.borderBottomColor = "rgba(26, 34, 54, 0.9)";
+      } else {
+        header.style.borderBottomColor = "rgba(26, 34, 54, 0.6)";
+      }
+    }, { passive: true });
   }
 </script>

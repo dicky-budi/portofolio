@@ -1,244 +1,283 @@
 ---
-import type { Skill } from "../types";
+type Level = "expert" | "advanced" | "intermediate";
+type Category = "frontend" | "mobile" | "tools" | "backend";
+
+interface Skill {
+  name: string;
+  icon: string;
+  level: Level;
+  category: Category;
+  pct: number;
+}
 
 const skills: Skill[] = [
-  {
-    name: "Next JS",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "React JS",
-    level: "Advanced",
-    category: "Frontend",
-  },
-  {
-    name: "HTML",
-    level: "Advanced",
-    category: "Frontend",
-  },
-  {
-    name: "CSS",
-    level: "Advanced",
-    category: "Frontend",
-  },
-  {
-    name: "Javascript",
-    level: "Advanced",
-    category: "Frontend",
-  },
-  {
-    name: "Flutter",
-    level: "Advanced",
-    category: "Frontend",
-  },
-  {
-    name: "Daisy UI",
-    level: "Advanced",
-    category: "Frontend",
-  },
-  {
-    name: "Radix UI",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Tanstack Library",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "SWR",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Tailwind CSS",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "SCSS",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "LESS",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "TypeScript",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "jQuery",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Vue JS",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Laravel",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Next.js",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "React Query",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Redux",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Jotai",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Vuex",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Socket",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "zod",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Ant Design",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Storybook",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Jest",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "BLoC",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Firebase",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Dio",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Hive",
-    level: "Intermediate",
-    category: "Frontend",
-  },
-  {
-    name: "Node.js",
-    level: "Beginner",
-    category: "Backend",
-  },
-  {
-    name: "Express.js",
-    level: "Beginner",
-    category: "Backend",
-  },
-  {
-    name: "PHP",
-    level: "Beginner",
-    category: "Backend",
-  },
-  {
-    name: "Amplitude",
-    level: "Intermediate",
-    category: "Tools",
-  },
-  {
-    name: "Firebase",
-    level: "Intermediate",
-    category: "Tools",
-  },
+  // Frontend
+  { name: "React",         icon: "⚛",  level: "expert",       category: "frontend", pct: 95 },
+  { name: "Next.js",       icon: "▲",  level: "expert",       category: "frontend", pct: 92 },
+  { name: "TypeScript",    icon: "✦",  level: "expert",       category: "frontend", pct: 90 },
+  { name: "Tailwind CSS",  icon: "🌊", level: "expert",       category: "frontend", pct: 95 },
+  { name: "Vue.js",        icon: "◈",  level: "advanced",     category: "frontend", pct: 78 },
+  { name: "Zustand",       icon: "◎",  level: "advanced",     category: "frontend", pct: 80 },
+  { name: "React Query",   icon: "⟳",  level: "advanced",     category: "frontend", pct: 82 },
+  { name: "Zod",           icon: "⬡",  level: "advanced",     category: "frontend", pct: 78 },
+  { name: "Storybook",     icon: "📖", level: "advanced",     category: "frontend", pct: 75 },
+  { name: "HTML / CSS",    icon: "◻",  level: "expert",       category: "frontend", pct: 96 },
+  { name: "jQuery",        icon: "ꭙ",  level: "advanced",     category: "frontend", pct: 76 },
+  { name: "Ant Design",    icon: "🐜", level: "advanced",     category: "frontend", pct: 80 },
+  { name: "SCSS / LESS",   icon: "🎨", level: "advanced",     category: "frontend", pct: 82 },
+  { name: "Jotai",         icon: "⊙",  level: "advanced",     category: "frontend", pct: 74 },
+  { name: "Socket.io",     icon: "⚡", level: "intermediate", category: "frontend", pct: 60 },
+  { name: "Redux",         icon: "⬡",  level: "intermediate", category: "frontend", pct: 65 },
+  // Mobile
+  { name: "Flutter",       icon: "🦋", level: "advanced",     category: "mobile",   pct: 82 },
+  { name: "Dart",          icon: "🎯", level: "advanced",     category: "mobile",   pct: 80 },
+  { name: "Flutter BLoC",  icon: "🧱", level: "intermediate", category: "mobile",   pct: 60 },
+  { name: "Firebase",      icon: "🔥", level: "intermediate", category: "mobile",   pct: 65 },
+  { name: "Hive",          icon: "🗄",  level: "intermediate", category: "mobile",   pct: 58 },
+  { name: "Geolocator",    icon: "📍", level: "intermediate", category: "mobile",   pct: 62 },
+  // Tools
+  { name: "Git",           icon: "🐙", level: "expert",       category: "tools",    pct: 95 },
+  { name: "Vite",          icon: "⚡", level: "advanced",     category: "tools",    pct: 82 },
+  { name: "Jest",          icon: "🔧", level: "advanced",     category: "tools",    pct: 76 },
+  { name: "Astro",         icon: "🚀", level: "advanced",     category: "tools",    pct: 78 },
+  { name: "Amplitude",     icon: "📊", level: "intermediate", category: "tools",    pct: 62 },
+  // Backend
+  { name: "Node.js",       icon: "📦", level: "intermediate", category: "backend",  pct: 55 },
+  { name: "Express.js",    icon: "🖥",  level: "intermediate", category: "backend",  pct: 52 },
+  { name: "PHP / Laravel", icon: "🐘", level: "intermediate", category: "backend",  pct: 50 },
 ];
 
-const categories = Array.from(new Set(skills.map((skill) => skill.category)));
+const levelMeta: Record<Level, { label: string; cls: string }> = {
+  expert:       { label: "Expert",       cls: "badge-expert" },
+  advanced:     { label: "Advanced",     cls: "badge-advanced" },
+  intermediate: { label: "Intermediate", cls: "badge-inter" },
+};
 ---
 
-<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="container mx-auto px-4">
-    <h2
-      class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white"
-    >
-      Skills & Technologies
-    </h2>
-    <p
-      class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
-    >
-      Here are the technologies and tools I work with on a regular basis.
-    </p>
+<section id="skills" class="skills-section">
+  <div class="section-label reveal">What I Know</div>
+  <h2 class="section-title reveal">Expertise</h2>
 
-    <div class="space-y-12">
-      {
-        categories.map((category) => (
-          <div>
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
-              {category}
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {skills
-                .filter((skill) => skill.category === category)
-                .map((skill) => (
-                  <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                      {skill.name}
-                    </h4>
-                    <div class="flex items-center">
-                      <div class="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-2">
-                        <div
-                          class={`h-2 rounded-full bg-blue-600 dark:bg-blue-400 ${
-                            skill.level === "Beginner"
-                              ? "w-1/4"
-                              : skill.level === "Intermediate"
-                                ? "w-1/2"
-                                : skill.level === "Advanced"
-                                  ? "w-3/4"
-                                  : "w-full"
-                          }`}
-                        />
-                      </div>
-                      <span class="ml-4 text-sm text-gray-600 dark:text-gray-400">
-                        {skill.level}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-            </div>
+  <!-- Filter bar -->
+  <div class="filter-bar" role="tablist" aria-label="Skill categories">
+    <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button class="filter-tab" data-filter="frontend" role="tab" aria-selected="false">Frontend</button>
+    <button class="filter-tab" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
+    <button class="filter-tab" data-filter="tools" role="tab" aria-selected="false">Tools</button>
+    <button class="filter-tab" data-filter="backend" role="tab" aria-selected="false">Backend</button>
+  </div>
+
+  <div class="skill-grid" id="skill-grid">
+    {skills.map((s) => {
+      const meta = levelMeta[s.level];
+      return (
+        <div
+          class="skill-card reveal"
+          data-category={s.category}
+        >
+          <div class="skill-header">
+            <div class="skill-icon" aria-hidden="true">{s.icon}</div>
+            <span class={`badge ${meta.cls}`}>{meta.label}</span>
           </div>
-        ))
-      }
-    </div>
+          <div class="skill-name">{s.name}</div>
+          <div class="skill-bar-wrap">
+            <div
+              class={`skill-bar ${s.level}`}
+              style={`--target: ${s.pct}%`}
+              role="progressbar"
+              aria-valuenow={s.pct}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label={`${s.name} proficiency: ${s.pct}%`}
+            ></div>
+          </div>
+        </div>
+      );
+    })}
   </div>
 </section>
+
+<style>
+  .skills-section {
+    position: relative;
+    z-index: 10;
+    padding: var(--section-py) var(--section-px);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 40px;
+    animation-delay: 0.1s;
+  }
+
+  /* ── Filter bar ─── */
+  .filter-bar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-tab {
+    flex-shrink: 0;
+    padding: 10px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .filter-tab:hover { color: var(--text); }
+  .filter-tab.active { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Skill grid ─── */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 10px;
+  }
+
+  /* ── Skill card ─── */
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.2s;
+    cursor: default;
+  }
+  .skill-card:hover {
+    border-color: rgba(0, 229, 204, 0.25);
+    transform: translateY(-2px);
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 229, 204, 0.03), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-card[aria-hidden="true"],
+  .skill-card.filtered-out {
+    display: none;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .skill-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+
+  /* Badges */
+  .badge {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .badge-expert  { color: var(--accent);   background: rgba(0,229,204,0.08);   border: 1px solid rgba(0,229,204,0.2); }
+  .badge-advanced{ color: var(--accent-2); background: rgba(123,97,255,0.08);  border: 1px solid rgba(123,97,255,0.2); }
+  .badge-inter   { color: #F59E0B;         background: rgba(245,158,11,0.08);  border: 1px solid rgba(245,158,11,0.2); }
+
+  .skill-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Progress bar */
+  .skill-bar-wrap {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar {
+    height: 100%;
+    border-radius: 2px;
+    width: 0;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .skill-bar.expert {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 8px rgba(0, 229, 204, 0.35);
+  }
+  .skill-bar.advanced {
+    background: linear-gradient(90deg, var(--accent-2), #A78BFA);
+    box-shadow: 0 0 8px rgba(123, 97, 255, 0.35);
+  }
+  .skill-bar.intermediate {
+    background: linear-gradient(90deg, #F59E0B, #FBBF24);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);
+  }
+  .skill-bar.animated { width: var(--target); }
+</style>
+
+<script>
+  // Filter tabs
+  document.querySelectorAll<HTMLElement>(".filter-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".filter-tab").forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+
+      const filter = tab.dataset.filter!;
+      document.querySelectorAll<HTMLElement>(".skill-card").forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.classList.toggle("filtered-out", !match);
+      });
+    });
+  });
+
+  // Animate progress bars on scroll into view
+  const barObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bars = entry.target.querySelectorAll<HTMLElement>(".skill-bar");
+          bars.forEach((bar) => setTimeout(() => bar.classList.add("animated"), 100));
+          barObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll(".skill-card").forEach((card) => barObserver.observe(card));
+</script>

@@ -1,97 +1,309 @@
 ---
-
+const techTicker = [
+  "React", "Next.js", "Vue.js", "Flutter", "TypeScript",
+  "Tailwind CSS", "Astro", "Storybook", "Zustand", "React Query",
+  "Zod", "Jest", "Vite", "Node.js", "Firebase",
+];
 ---
 
-<section id="contact" class="py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-4">
-    <h2
-      class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white"
-    >
-      Get In Touch
-    </h2>
-    <p
-      class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
-    >
-      Have a question or want to work together? Feel free to reach out!
-    </p>
+<!-- Orbs for this section -->
+<div class="contact-orb contact-orb-1" aria-hidden="true"></div>
+<div class="contact-orb contact-orb-2" aria-hidden="true"></div>
 
-    <div class="max-w-2xl mx-auto">
-      <form class="space-y-6" action="#" method="POST" id="contact-form">
-        <div>
-          <label
-            for="name"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          />
-        </div>
+<section id="contact" class="contact-section">
+  <div class="section-label reveal">Get in Touch</div>
 
-        <div>
-          <label
-            for="email"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          />
-        </div>
+  <h2 class="contact-heading reveal">
+    GOT A<br />
+    <span>PROJECT</span><br />
+    <span class="dim">IN MIND?</span>
+  </h2>
 
-        <div>
-          <label
-            for="message"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            Message
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            rows="4"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          ></textarea>
-        </div>
+  <p class="contact-sub reveal">
+    I'm available for freelance projects and full-time roles.
+    Let's build something worth showing off.
+  </p>
 
-        <div>
-          <button
-            type="submit"
-            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
-          >
-            Send Message
-          </button>
+  <div class="contact-grid reveal">
+    <!-- Form -->
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="field">
+        <input type="text" id="c-name" name="name" placeholder=" " required autocomplete="name" />
+        <label for="c-name">Your Name</label>
+      </div>
+      <div class="field">
+        <input type="email" id="c-email" name="email" placeholder=" " required autocomplete="email" />
+        <label for="c-email">Email Address</label>
+      </div>
+      <div class="field">
+        <textarea id="c-msg" name="message" placeholder=" " required rows="5"></textarea>
+        <label for="c-msg">Your Message</label>
+      </div>
+      <button class="send-btn" type="submit">
+        <span class="send-label">Send Message</span>
+        <span class="send-arrow" aria-hidden="true">→</span>
+      </button>
+      <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+    </form>
+
+    <!-- Info cards -->
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="info-label">Email</div>
+        <div class="info-value">
+          <a href="mailto:dbudianto9@gmail.com">dbudianto9@gmail.com</a>
         </div>
-      </form>
+        <div class="avail-status">
+          <span class="avail-dot" aria-hidden="true"></span>
+          Available for new projects
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">LinkedIn</div>
+        <div class="info-value">
+          <a
+            href="https://www.linkedin.com/in/dicky-budianto-sugiono-433ba822b/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/dickybudianto
+          </a>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Based In</div>
+        <div class="info-value">Surabaya, Indonesia</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Response Time</div>
+        <div class="info-value">Within 24 hours</div>
+      </div>
     </div>
   </div>
 </section>
 
+<style>
+  /* ── Orbs ─── */
+  .contact-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .contact-orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0, 229, 204, 0.055), transparent 70%);
+    bottom: -100px; left: 50%; transform: translateX(-50%);
+  }
+  .contact-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(123, 97, 255, 0.045), transparent 70%);
+    top: 60px; right: -80px;
+  }
+
+  .contact-section {
+    position: relative;
+    z-index: 10;
+    padding: var(--section-py) var(--section-px) calc(var(--section-py) * 0.75);
+  }
+
+  .contact-heading {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    animation-delay: 0.1s;
+  }
+  .contact-heading span { color: var(--accent); }
+  .contact-heading .dim { color: var(--muted-2); }
+
+  .contact-sub {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 500px;
+    margin-bottom: 56px;
+    animation-delay: 0.2s;
+  }
+
+  /* ── Grid ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: start;
+    animation-delay: 0.3s;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Form ─── */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .field { position: relative; }
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 20px 18px 8px;
+    outline: none;
+    border-radius: 2px;
+    transition: border-color 0.25s;
+    resize: none;
+  }
+  .field textarea { min-height: 140px; }
+  .field input:focus,
+  .field textarea:focus { border-color: var(--accent); }
+
+  /* Floating label */
+  .field label {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    pointer-events: none;
+    transition: top 0.2s, font-size 0.2s, color 0.2s;
+  }
+  .field input:focus ~ label,
+  .field input:not(:placeholder-shown) ~ label,
+  .field textarea:focus ~ label,
+  .field textarea:not(:placeholder-shown) ~ label {
+    top: 5px;
+    font-size: 9px;
+    color: var(--accent);
+  }
+
+  .send-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    background: var(--accent);
+    border: none;
+    color: var(--bg);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: background 0.25s;
+    position: relative;
+  }
+  .send-btn:hover { background: #00f5da; }
+  .send-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .send-arrow {
+    font-size: 20px;
+    transition: transform 0.25s;
+  }
+  .send-btn:hover .send-arrow { transform: translateX(5px); }
+
+  .form-status {
+    font-size: 13px;
+    min-height: 20px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .form-status.error { color: #FF6B6B; }
+
+  /* ── Info cards ─── */
+  .contact-info { display: flex; flex-direction: column; gap: 14px; }
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 22px 26px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .info-card:hover { border-color: rgba(0, 229, 204, 0.2); }
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .info-card:hover::before { opacity: 1; }
+
+  .info-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .info-value {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .info-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .info-value a:hover { color: var(--accent); }
+
+  .avail-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+  .avail-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(0, 229, 204, 0.5);
+    flex-shrink: 0;
+  }
+</style>
+
 <script>
-  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const statusEl = document.getElementById("form-status");
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+    const btn = form.querySelector<HTMLButtonElement>(".send-btn");
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
 
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", data);
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+    if (statusEl) { statusEl.textContent = ""; statusEl.className = "form-status"; }
 
-    // For now, just show an alert
-    alert("Thanks for your message! This is a demo form.");
+    // Simulate send (replace with actual endpoint)
+    await new Promise((r) => setTimeout(r, 1200));
+
+    if (statusEl) {
+      statusEl.textContent = "Message sent! I'll get back to you within 24 hours.";
+    }
     form.reset();
+    if (btn) { btn.disabled = false; btn.innerHTML = '<span class="send-label">Send Message</span><span class="send-arrow" aria-hidden="true">→</span>'; }
   });
 </script>
