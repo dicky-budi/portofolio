@@ -1,9 +1,5 @@
 ---
-const techTicker = [
-  "React", "Next.js", "Vue.js", "Flutter", "TypeScript",
-  "Tailwind CSS", "Astro", "Storybook", "Zustand", "React Query",
-  "Zod", "Jest", "Vite", "Node.js", "Firebase",
-];
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
 ---
 
 <!-- Orbs for this section -->
@@ -27,6 +23,20 @@ const techTicker = [
   <div class="contact-grid reveal">
     <!-- Form -->
     <form class="contact-form" id="contact-form" novalidate>
+      <!-- Web3Forms config -->
+      <input type="hidden" name="access_key" value={web3formsKey} />
+      <input type="hidden" name="subject" value="New message from your portfolio" />
+      <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+      <!-- Honeypot spam trap (must stay empty) -->
+      <input
+        type="checkbox"
+        name="botcheck"
+        class="hidden-honeypot"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+      />
+
       <div class="field">
         <input type="text" id="c-name" name="name" placeholder=" " required autocomplete="name" />
         <label for="c-name">Your Name</label>
@@ -73,10 +83,6 @@ const techTicker = [
       <div class="info-card">
         <div class="info-label">Based In</div>
         <div class="info-value">Surabaya, Indonesia</div>
-      </div>
-      <div class="info-card">
-        <div class="info-label">Response Time</div>
-        <div class="info-value">Within 24 hours</div>
       </div>
     </div>
   </div>
@@ -283,27 +289,73 @@ const techTicker = [
     box-shadow: 0 0 6px rgba(0, 229, 204, 0.5);
     flex-shrink: 0;
   }
+
+  /* Honeypot — visually hidden, off-screen, not focusable */
+  .hidden-honeypot {
+    position: absolute !important;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
 </style>
 
 <script>
   const form = document.getElementById("contact-form") as HTMLFormElement | null;
   const statusEl = document.getElementById("form-status");
 
+  const BTN_DEFAULT_HTML =
+    '<span class="send-label">Send Message</span><span class="send-arrow" aria-hidden="true">→</span>';
+
+  function setStatus(message: string, isError = false) {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.className = isError ? "form-status error" : "form-status";
+  }
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = form.querySelector<HTMLButtonElement>(".send-btn");
     const formData = new FormData(form);
 
-    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
-    if (statusEl) { statusEl.textContent = ""; statusEl.className = "form-status"; }
-
-    // Simulate send (replace with actual endpoint)
-    await new Promise((r) => setTimeout(r, 1200));
-
-    if (statusEl) {
-      statusEl.textContent = "Message sent! I'll get back to you within 24 hours.";
+    // Guard: ensure the access key is present
+    if (!formData.get("access_key")) {
+      setStatus("Form isn't configured yet. Please email dbudianto9@gmail.com directly.", true);
+      return;
     }
-    form.reset();
-    if (btn) { btn.disabled = false; btn.innerHTML = '<span class="send-label">Send Message</span><span class="send-arrow" aria-hidden="true">→</span>'; }
+
+    // Native HTML5 validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+    setStatus("");
+
+    try {
+      const payload = Object.fromEntries(formData.entries());
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus("Message sent! I'll get back to you within 24 hours.");
+        form.reset();
+      } else {
+        setStatus(data.message || "Something went wrong. Please try again or email me directly.", true);
+      }
+    } catch {
+      setStatus("Network error. Please try again or email dbudianto9@gmail.com directly.", true);
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerHTML = BTN_DEFAULT_HTML; }
+    }
   });
 </script>
